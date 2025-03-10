@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT Dynamic Business Consulting - Benefits</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .benefit-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .benefit-image {
+            width: 1500px; /* Manually increased width to 300px */
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 10px;
+            max-width: 100%;
+        }
+
+        .zoomed {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+            z-index: 10;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li class="contact-info">
+                    <a href="mailto:info@rtdynamicbc.co.za">info@rtdynamicbc.co.za</a>
+                    <span>+27 65 892 0000 / +27 69 576 0121</span>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="benefits.html" class="active">Benefits</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="benefits-explained">
+        <div class="container">
+            <h1>Benefits</h1>
+
+            <div class="benefit-detail">
+                <div class="benefit-header" onclick="toggleZoom('accurate-insights')">
+                    <img src="images/financial-insights.png" alt="Financial Insights" class="benefit-image">
+                    <h2>Accurate Financial Insights</h2>
+                </div>
+                <div id="accurate-insights" class="zoom-content"> <p class="zoom-target">
+                        In today's fast-paced business environment, making informed decisions is crucial for success. Our detailed financial analysis provides you with clear and accurate insights into your company's financial health. We go beyond basic reporting to deliver actionable intelligence that empowers you to:
+                    </p>
+                    <ul class="zoom-target">
+                        <li>Identify trends and opportunities for growth.</li>
+                        <li>Optimize your cash flow and manage expenses effectively.</li>
+                        <li>Make data-driven decisions regarding investments and resource allocation.</li>
+                        <li>Understand key performance indicators (KPIs) and track progress towards your goals.</li>
+                    </ul>
+                    <p class="zoom-target">
+                        We provide comprehensive financial reports, including income statements, balance sheets, and cash flow statements, tailored to your specific needs. Our expertise ensures that you have the information you need to make sound financial decisions and drive your business forward.
+                    </p>
+                </div>
+            </div>
+
+            <div class="benefit-detail">
+                <div class="benefit-header" onclick="toggleZoom('tax-compliance')">
+                    <img src="images/tax-compliance.png" alt="Tax Compliance" class="benefit-image">
+                    <h2>Stress-Free Tax Compliance</h2>
+                </div>
+                <div id="tax-compliance" class="zoom-content"> <p class="zoom-target">
+                        Navigating the complexities of tax laws can be overwhelming and time-consuming. Our team of experienced tax professionals simplifies the process, ensuring that you remain compliant with all applicable regulations. We handle all aspects of tax preparation and filing, allowing you to focus on your core business activities.
+                    </p>
+                    <ul class="zoom-target">
+                        <li>Minimize your tax liabilities through strategic planning and optimization.</li>
+                        <li>Avoid costly penalties and fines by ensuring accurate and timely filings.</li>
+                        <li>Stay up-to-date on the latest tax laws and regulations.</li>
+                        <li>Benefit from our expertise in handling tax audits and disputes.</li>
+                    </ul>
+                    <p class="zoom-target">
+                        We provide personalized tax solutions tailored to your unique business needs. Our goal is to alleviate the stress of tax compliance, giving you peace of mind and allowing you to concentrate on growing your business.
+                    </p>
+                </div>
+            </div>
+
+            <div class="benefit-detail">
+                <div class="benefit-header" onclick="toggleZoom('financial-stability')">
+                    <img src="images/financial-stability.png" alt="Financial Stability" class="benefit-image">
+                    <h2>Improved Financial Stability</h2>
+                </div>
+                <div id="financial-stability" class="zoom-content"> <p class="zoom-target">
+                        Building a strong financial foundation is essential for long-term business success. Our comprehensive accounting services help you achieve financial stability by providing expert guidance and support in key areas such as budgeting, forecasting, and financial planning.
+                    </p>
+                    <ul class="zoom-target">
+                        <li>Develop realistic budgets and financial forecasts to guide your business decisions.</li>
+                        <li>Implement effective cash flow management strategies.</li>
+                        <li>Identify and mitigate financial risks.</li>
+                        <li>Monitor your financial performance and make adjustments as needed.</li>
+                    </ul>
+                    <p class="zoom-target">
+                        We work closely with you to develop customized financial strategies that align with your business goals. Our proactive approach helps you anticipate challenges and capitalize on opportunities, ensuring that your business remains financially resilient.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 RT Dynamic Business Consulting</p>
+    </footer>
+
+    <script>
+        function toggleZoom(id) {
+            const element = document.getElementById(id);
+            element.querySelectorAll('.zoom-target').forEach(item => {
+                item.classList.toggle('zoomed');
+            });
+        }
+    </script>
+</body>
+</html>

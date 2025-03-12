@@ -1,5 +1,4 @@
-/* style.css */
-
+/* ==================== Base Styles ==================== */
 body {
     font-family: sans-serif;
     margin: 0;
@@ -8,6 +7,7 @@ body {
     color: #333;
 }
 
+/* ==================== Layout Styles ==================== */
 header {
     background-color: #f0f0f0;
     padding: 20px;
@@ -17,6 +17,15 @@ header {
     z-index: 100;
 }
 
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9em;
+}
+
+/* ==================== Navigation Styles ==================== */
 nav ul {
     list-style: none;
     padding: 0;
@@ -50,8 +59,9 @@ nav ul li a::after {
     background-color: #ccc;
 }
 
-nav ul li:last-child a::after {
-    display: none;
+nav ul li:last-child a::after,
+nav ul li:last-child {
+    margin-right: 0;
 }
 
 .contact-info {
@@ -61,15 +71,17 @@ nav ul li:last-child a::after {
     align-items: center;
 }
 
-.contact-info a, .contact-info span {
+.contact-info a {
+    margin-right: 10px;
+}
+
+.contact-info a,
+.contact-info span {
     font-size: 1.1em;
     white-space: nowrap;
 }
 
-nav ul li:last-child {
-    margin-right: 0;
-}
-
+/* ==================== Hero Styles ==================== */
 .hero {
     display: flex;
     align-items: center;
@@ -135,24 +147,102 @@ nav ul li:last-child {
     background-color: #0056b3;
 }
 
-.benefits, .services, .about-us, .contact {
-    padding: 50px;
-    text-align: center;
+/* ==================== Benefits Styles ==================== */
+.benefit-section {
+    display: flex; /* Use flexbox for the two-column layout */
+    align-items: center; /* Vertically align items */
+    padding: 20px; /* Add some padding around the section */
 }
 
-.benefits h2, .services h2, .about-us h2, .contact h2 {
-    margin-bottom: 30px;
-    color: #222;
+.benefit-left {
+    flex: 1; /* Take up available space */
+    background-color: #f9f9f9; /* Light background */
+    padding: 20px;
 }
 
-.benefit-grid, .service-grid {
+.benefit-right {
+    flex: 1; /* Take up available space */
+    background-color: white;
+    text-align: right; /* Align image to the right */
+}
+
+.yellow-square {
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    background-color: yellow;
+    margin-bottom: 20px;
+}
+
+.benefit-section h2 {
+    font-size: 2.5em; /* Adjust font size */
+    margin-bottom: 15px;
+}
+
+.benefit-section p {
+    margin-bottom: 20px;
+}
+
+.benefit-button {
+    background-color: #333; /* Button background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease
+}
+.benefit-button:hover {
+    background-color: #555; 
+    cursor: pointer; 
+}
+.benefit-right img {
+    max-width: 100%; /* Make image responsive */
+    height: auto;
+}
+
+.additional-content {
+    display: none;
+    margin-top: 15px;
+    opacity: 0; /* Initially transparent */
+    transition: opacity 0.3s ease; /* Smooth opacity change */
+}
+
+.benefit-section.expanded .additional-content {
+    display: block;
+    opacity: 1; /* Fade in when expanded */
+}
+
+.benefit-section.expanded .read-more-btn {
+    display: none; /* Hide button when expanded */
+}
+
+/* Responsive Design (Optional) */
+@media (max-width: 768px) {
+    .benefit-section {
+        flex-direction: column;
+    }
+
+    .benefit-left,
+    .benefit-right {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .benefit-right {
+        text-align: center; /* Center image on small screens */
+    }
+}
+
+/* Combined benefit-grid and service-grid */
+.benefit-grid,
+.service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
 
-.benefit-item, .service-item {
+/* Combined benefit-item and service-item */
+.benefit-item,
+.service-item {
     padding: 30px;
     border: 1px solid #eee;
     border-radius: 8px;
@@ -160,19 +250,95 @@ nav ul li:last-child {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.benefit-item:hover, .service-item:hover {
+.benefit-item:hover,
+.service-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.benefit-item img, .service-item img {
+.benefit-item img,
+.service-item img {
     max-width: 80px;
     margin-bottom: 20px;
 }
 
-.benefit-item h3, .service-item h3 {
+.benefit-item h3,
+.service-item h3 {
     margin-bottom: 15px;
     color: #222;
+}
+
+.zoom-content {
+    display: none;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.zoom-content.show {
+    display: block;
+    max-height: 500px;
+    opacity: 1;
+}
+
+.read-more {
+    font-size: 1.1em;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #0056b3;
+}
+
+/* ==================== Services Styles ==================== */
+.services-explained {
+    text-align: center;
+}
+
+.services-explained h1 {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+}
+
+.service-detail h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.service-detail p,
+.service-detail ul li {
+    font-size: 1.2em;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.service-detail {
+    padding: 30px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, width 0.4s ease, max-width 0.4s ease;
+}
+
+.service-detail:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 900px;
+}
+
+.service-detail ul {
+    text-align: left;
+    display: inline-block;
 }
 
 .service-item ul {
@@ -186,6 +352,7 @@ nav ul li:last-child {
     margin-bottom: 8px;
 }
 
+/* ==================== Contact Form Styles ==================== */
 .contact form {
     display: flex;
     flex-direction: column;
@@ -193,7 +360,9 @@ nav ul li:last-child {
     margin: 30px auto;
 }
 
-.contact input, .contact textarea, .contact button {
+.contact input,
+.contact textarea,
+.contact button {
     margin-bottom: 15px;
     padding: 12px;
     border: 1px solid #ddd;
@@ -218,15 +387,133 @@ nav ul li:last-child {
     background-color: #0056b3;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
+#contact-form {
     padding: 30px;
-    font-size: 0.9em;
 }
 
-/* Responsive Design */
+#contact-form h2 {
+    font-size: 2.2em;
+}
+
+#contact-form p {
+    font-size: 1.2em;
+}
+
+#consultation-form label {
+    font-size: 1.1em;
+}
+
+#consultation-form input,
+#consultation-form textarea {
+    font-size: 1em;
+    padding: 10px;
+}
+
+#consultation-form textarea {
+    width: 80%;
+    height: 150px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+#consultation-form button {
+    font-size: 1.2em;
+    padding: 15px 30px;
+    width: auto;
+}
+
+/* ==================== Utility Styles ==================== */
+.zoomed {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    z-index: 10;
+    position: relative;
+    padding: 10px;
+}
+
+.zoom-content {
+    transition: transform 0.3s ease, position 0.3s ease, top 0.3s ease, left 0.3s ease,
+    width 0.3s ease, height 0.3s ease, z-index 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.zoom-content.zoomed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==================== Scrolling Logos Styles ==================== */
+.logo-strip {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.logo-scroll {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+    padding: 20px 0;
+    width: 200%;
+}
+
+.logo-scroll img {
+    height: 250px;
+}
+
+.logo-strip:hover .logo-scroll {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ==================== About Us Page Styles ==================== */
+.about-us-detailed {
+    padding: 50px;
+}
+
+.about-us-detailed h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-us-detailed .container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.about-us-detailed .about-content {
+    text-align: left;
+}
+
+.about-us-detailed .about-content h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.about-us-detailed .about-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.about-us-detailed .about-content li {
+    margin-bottom: 10px;
+}
+
+/* ==================== Responsive Design ==================== */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -246,36 +533,31 @@ footer {
         max-width: 100%;
     }
 
-    .benefit-grid, .service-grid {
+    .benefit-grid,
+    .service-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* Benefits page specific styles */
-.benefit-detail {
-    padding: 30px;
-    position: relative;
-    overflow: hidden;
+#benefits h2,
+#services h2,
+#about-us h2,
+.benefit-item h3,
+.service-item h3 {
+    text-align: center;
 }
 
-.zoomed {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-    z-index: 10;
-    position: relative;
-    padding: 10px;
+.benefit-item img,
+.service-item img {
+    display: block;
+    margin: 0 auto 20px; /* Centers horizontally, adds bottom margin */
+    max-width: 80px;
 }
 
-.zoom-content {
-    transition: transform 0.3s ease, position 0.3s ease, top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease, z-index 0.3s ease;
-    position: relative;
-    z-index: 1;
+#about-us {
+    text-align: center; /* Center the entire section */
 }
 
-.zoom-content.zoomed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#about-us p {
+    text-align: center; /* Center the paragraph */
 }
